@@ -1,85 +1,53 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <style>
-      .logo:hover{
-        transition: all 0.5s;
-        animation: neon 1.5s ease-in-out infinite alternate;
-      }
-      .logo{
-        transition: all 0.5s;
-        animation: none;
-      }
-      a:hover{
-        text-decoration: dashed !important;
-      }
-      @keyframes neon {
-  from {
-    filter: drop-shadow(0 0 10px #fff)drop-shadow(0 0 20px #fff)drop-shadow(0 0 30px #fff)drop-shadow(0 0 40px #FF9900)drop-shadow(0 0 70px #FF9900)drop-shadow(0 0 80px #FF9900)drop-shadow(0 0 100px #FF9900)drop-shadow(0 0 150px #FF9900);
-  }
-  to {
-    filter: drop-shadow(0 0 5px #fff)drop-shadow(0 0 10px #fff)drop-shadow(0 0 15px #fff)drop-shadow(0 0 20px #FF9900)drop-shadow(0 0 35px #FF9900)drop-shadow(0 0 40px #FF9900)drop-shadow(0 0 50px #FF9900)drop-shadow(0 0 75px #FF9900);
-  }
-}
-
-    </style>
-    
-    
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="icon" href="img/logo.svg" type="image/svg">
-    <title>Council PCSSHSST</title>
-  </head>
-  <body>
-
-  <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3 mb-5" aria-label="Ninth navbar example">
-        <div class="container">
-            <a class="navbar-brand" href="https://councilpcshsst.github.io">
-              <img class="logo" src="img/logo.svg" style="width: 10vh;">
-            </a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarsExample07XL">
-                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="text-dark nav-link" target="_blank" href="https://script.google.com/macros/s/AKfycbwvcgCoD-MPZp7NUbbfPGrK1CCM_xYSkjtzsZ1RYMJYfUcmLkcZmdu6Vp00OYgeAYh1/exec">ส่งรักส่งยิ้ม</a></li>
-<!--                     <li class="nav-item"><a class="text-dark nav-link" target="_blank" href="https://forms.gle/ijUsJCdYRkQWDeQa9">แบบฟอร์มการสั่งซื้อดอกกุหลาบ</a></li> -->
-                    <!--<li class="nav-item"><a class="text-dark nav-link" target="_blank" href="https://forms.gle/FP1fZx4ZsvwBG91a7">แบบสอบถามสี่ภาค</a></li>-->
-                    <li class="nav-item"><a class="text-dark nav-link" target="_blank" href="https://forms.gle/dqrNtcGv3id9QUHG9">ขอเพลงตอนเช้า</a></li>
-<!--                     <li class="nav-item"><a class="text-dark nav-link" target="_blank" href="https://drive.google.com/drive/folders/1UDJPhdvOHU7Am5w5ztOobThyQ4zPdhMV">แผนการจัดการเรียนรู้</a></li>
-                    <li class="nav-item"><a class="text-dark nav-link" target="_blank" href="http://pccst.ac.th/data/%E0%B8%95%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%A3%E0%B8%A7%E0%B8%A1%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%A0%E0%B8%B2%E0%B8%84%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%882_63.pdf">ตารางเรียน</a></li> -->
-                    <li class="nav-item"><a class="text-dark nav-link" target="_blank" href="http://pccst.ac.th">เว็บโรงเรียน</a></li>
-                    <!--<li class="nav-item">
-                     <div class="dropdown">
-                      <a class="text-dark nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">รายงานปัญหา</a>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" target="_blank" href="https://forms.gle/GXzmgp5XT6k2JkoB9">โรงอาหาร</a></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://forms.gle/uJ4bN7QZG84YetiY8">โรงซัก</a></li>
-                      </ul>
-                     </div>
-                    </li>-->
-                </ul>
+    <title>Council PCSHSST</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container-sm mt-4" style="text-align: center;">
+            <div class="card">
+                <div class="card-body">
+                    <img src="img/logo.svg" alt="" width="150">
+                    <h2>Council PCSHSST</h2>
+                    <h4>กรุณาเลือกเมนูที่ต้องการ</h4><hr>
+                    <div class="col mx-4">
+                        <div id="button-g"></div>
+                    </div>
+                    <hr>
+                    <p style="font-size: 0.8rem;">คณะกรรมการสภานักเรียน โรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย สตูล</p>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <article class="col-md-6 align-self-center">
-                <h1 class="display-3 text-dark ">ยินดีต้อนรับ</h1>
-                <br>
-                <h4 class="text-dark ">เข้าสู่เว็บไซต์ของคณะกรรมการนักเรียน<br>โรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย สตูล</h4>
-            </article>
-            <section class="col-md-6">
-                <img class="poster" src="img/poster.jpg" style="width: 100%;">
-            </section>
-        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  </body>
+    <script>
+        fetch("btn_list.json")
+        .then( (res) => {
+            if(res.status === 200){
+                return res.json();
+            }else{
+                alert("ไม่สามารถดาวน์โหลดเมนูได้ ณ ขณะนี้โปรดลองอีกครั้งภายหลัง")
+            }
+        } )
+        .then((data) => {
+            for(x in data){
+                console.log(data)
+                const title = data[x].buttons_title
+                const links = data[x].link
+                const box = document.createElement('div')
+                box.innerHTML = `
+                <div class='row'>
+                <a href='${links}' class='btn btn-lg btn-success my-2'>${title}</a>
+                </div>
+                `
+                document.getElementById("button-g").appendChild(box)
+            }
+        })
+    </script>
+</body>
 </html>
