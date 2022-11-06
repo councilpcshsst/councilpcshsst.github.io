@@ -10,14 +10,14 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="container-sm mt-4" style="text-align: center;">
+        <div class="container-sm my-4" style="text-align: center;">
             <div class="card">
                 <div class="card-body">
                     <img src="img/logo.svg" alt="" width="150">
                     <h2>Council PCSHSST</h2>
                     <h4>กรุณาเลือกเมนูที่ต้องการ</h4><hr>
                     <div class="col mx-4">
-                        <div id="button-g"></div>
+                        <div id="button-g">กำลังดึงข้อมูล โปรดรอสักครู่... (หากนานกว่า 30 วินาทีโปรดลองอีกครั้งภายหลัง)</div>
                         <noscript>
                             <div class='row'>
                                 <a href='https://forms.gle/MuRugvu33UQcSo9VA' class='btn btn-lg btn-success my-2'>ฟอร์มรับสมัครนางนพมาศ</a>
@@ -43,17 +43,19 @@
         </div>
     </div>
     <script>
-        fetch("btn_list.json")
+        fetch("https://tempcon.ngixx.in.th/menu_sapha")
         .then( (res) => {
-            if(res.status === 200){
-                return res.json();
-            }else{
-                alert("ไม่สามารถดาวน์โหลดเมนูได้ ณ ขณะนี้โปรดลองอีกครั้งภายหลัง")
+            if(res.status !== 200){
+                return res.status
             }
+            return res.json();
         } )
         .then((data) => {
+            document.getElementById("button-g").innerHTML = ''
+            if(typeof data == "number"){
+                document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>${data}</strong> <br>โปรดติดต่อคณะกรรมการสภานักเรียน` 
+            }
             for(x in data){
-                console.log(data)
                 const title = data[x].buttons_title
                 const links = data[x].link
                 const box = document.createElement('div')
