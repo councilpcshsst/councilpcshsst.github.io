@@ -198,7 +198,7 @@
                     $.ajax({
                         type: "POST",
                         data: {CLASS_REQUEST: $('#class_request').val(),CLASS_NO_REQUEST: $('#class_no_request').val()},
-                        url: "http://127.0.0.1:3001/songrak_dumpname",
+                        url: "https://tempcon.ngixx.in.th/songrak_dumpname",
                         success: function(data){
                             $('#request_name').html(data);
                         }
@@ -222,7 +222,7 @@
                     $.ajax({
                         type: "POST",
                         data: {CLASS_REQUEST: $('#class_recieve').val(),CLASS_NO_REQUEST: $('#class_no_recieve').val()},
-                        url: "http://127.0.0.1:3001/songrak_dumpname",
+                        url: "https://tempcon.ngixx.in.th/songrak_dumpname",
                         success: function(data){
                             $('#recieve_name').html(data);
                         }
