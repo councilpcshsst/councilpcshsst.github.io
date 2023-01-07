@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
+    <title>ส่งรักส่งยิ้ม</title>
+    <!-- Bootstrap Zone -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!--Social tags-->
+    <meta property="og:title" content="ส่งรักส่งยิ้ม">
+    <meta property="og:description" content="ส่งรักส่งยิ้มโดย คณะกรรมการนักเรียนโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย สตูล">
+    <meta property="og:image" content="https://songrak.ngixx.in.th/img/social_thumb.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ส่งรักส่งยิ้ม">
+    <meta name="twitter:url" content="https://songrak.ngixx.in.th">
+    <meta name="twitter:description" content="ส่งรักส่งยิ้มโดย คณะกรรมการนักเรียนโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย สตูล">
+    <meta name="twitter:image" content="https://songrak.ngixx.in.th/img/social_thumb.png">
+    <!-- CSS -->
+    <noscript>กรุณาเปิดใช้งาน JavaScript</noscript>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- Feather Icons CDN -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <form method="POST" action="https://tempcon.ngixx.in.th/songrak_add">
+        <div class="container my-3">
+            <div class="container-sm">
+                <div class="alert alert-warning" role="alert">
+                    <i data-feather="alert-circle"></i> หากตัวฟอร์มเกิดข้อผิดพลาดให้ทดลองรีเฟรชหน้าจอ/เข้าหน้าเว็บไซต์ใหม่อีกครั้ง
+                  </div>                  
+                <div class="card">
+                    <div class="card-header bg-info text-dark">ขั้นตอนที่ 1 : ข้อมูลผู้ขอ</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                          <label for="class_request" class="form-label">ระดับชั้นที่กำลังศึกษา</label>
+                          <select name="CLASS_REQUEST" id="class_request" class="form-control">
+                            <option value="x" selected>ชั้นมัธยมศึกษาปีที่ ...</option>
+                            <option value="1">ชั้นมัธยมศึกษาปีที่ 1</option>
+                            <option value="2">ชั้นมัธยมศึกษาปีที่ 2</option>
+                            <option value="3">ชั้นมัธยมศึกษาปีที่ 3</option>
+                            <option value="4">ชั้นมัธยมศึกษาปีที่ 4</option>
+                            <option value="5">ชั้นมัธยมศึกษาปีที่ 5</option>
+                            <option value="6">ชั้นมัธยมศึกษาปีที่ 6</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="class_no_request" class="form-label">ห้องที่กำลังศึกษา</label>
+                          <select name="CLASS_NO_REQUEST" id="class_no_request" class="form-control">
+                            <option value="1">1 (Omega)</option>
+                            <option value="2">2 (Delta)</option>
+                            <option value="3">3 (Theta)</option>
+                            <option value="4">4 (Zigma)</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="request_name" class="form-label">ผู้ขอ</label>
+                          <select name="REQUEST_NAME" id="request_name" class="form-control">
+                          </select>
+                        </div>
+                        <div class="mb-3 input-group">
+                            <span class="input-group-text" id="email"><i data-feather="mail"></i></span>
+                            <input type="email" class="form-control" placeholder="E-mail ที่ใช้ติดต่อกรณีที่มีปัญหา" aria-label="E-mail ที่ใช้ติดต่อกรณีที่มีปัญหา" aria-describedby="email" name="EMERGENCY">
+                        </div>
+         
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container my-3">
+            <div class="container-sm">
+                <div class="card">
+                    <div class="card-header bg-info text-dark">ขั้นตอนที่ 2 : ข้อมูลผู้รับ</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                          <label for="class_recieve" class="form-label">ระดับชั้นที่กำลังศึกษา</label>
+                          <select name="CLASS_RECIEVE" id="class_recieve" class="form-control">
+                            <option value="x" selected>ชั้นมัธยมศึกษาปีที่ ...</option>
+                            <option value="1">ชั้นมัธยมศึกษาปีที่ 1</option>
+                            <option value="2">ชั้นมัธยมศึกษาปีที่ 2</option>
+                            <option value="3">ชั้นมัธยมศึกษาปีที่ 3</option>
+                            <option value="4">ชั้นมัธยมศึกษาปีที่ 4</option>
+                            <option value="5">ชั้นมัธยมศึกษาปีที่ 5</option>
+                            <option value="6">ชั้นมัธยมศึกษาปีที่ 6</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="class_no_recieve" class="form-label">ห้องที่กำลังศึกษา</label>
+                          <select name="CLASS_NO_RECIEVE" id="class_no_recieve" class="form-control">
+                            <option value="1">1 (Omega)</option>
+                            <option value="2">2 (Delta)</option>
+                            <option value="3">3 (Theta)</option>
+                            <option value="4">4 (Zigma)</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="recieve_name" class="form-label">ผู้ขอ</label>
+                          <select name="RECIEVE_NAME" id="recieve_name" class="form-control">
+                          </select>
+                        </div>        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container my-3">
+            <div class="container-sm">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">ขั้นตอนที่ 3 : ข้อมูลที่ต้องการขอ</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                          <label for="quest1" class="form-label">คำถามที่ 1:</label>
+                          <input required type="text" id="quest1" class="form-control" name="QUEST1">
+                          <label for="quest2" class="form-label">คำถามที่ 2:</label>
+                          <input required type="text" id="quest2" class="form-control" name="QUEST2">
+                          <label for="quest3" class="form-label">คำถามที่ 3:</label>
+                          <input required type="text" id="quest3" class="form-control" name="QUEST3">
+                          <label for="quest4" class="form-label">คำถามที่ 4:</label>
+                          <input type="text" id="quest4" class="form-control" name="QUEST4">
+                          <label for="quest5" class="form-label">คำถามที่ 5:</label>
+                          <input type="text" id="quest5" class="form-control" name="QUEST5">
+                        </div>
+                        <div class="mb-3">
+                            <label for="img_amount">จำนวนรูปภาพ: </label>
+                            <select name="IMG_AMOUNT" class="form-control" id="img_amount">
+                                <option value="" selected></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container my-3">
+            <div class="container-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col"><h5>ราคาทั้งสิ้น</h5></div>
+                            <div class="col">
+                                <strong><h5 class="text-end" id="price_show">***.** บาท</h5></strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container my-3">
+            <div class="container-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <p style="color:red;">** โปรดตรวจสอบข้อมูลให้ถี่ถ้วนก่อนส่งข้อมูล **</p>
+                            <button class="btn btn-success" type="submit"><i data-feather="save"></i> ส่งข้อมูล</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <script>
+            const PR_QUEST = 5;
+            const PR_IMG = 10;
+            var qu1 = 0; var qu2 = 0; var qu3 = 0; var qu4 = 0; var qu5 = 0; var img_amount = 0;
+            function showPrice(){
+                var finalPrice = (qu1*PR_QUEST)+(qu2*PR_QUEST)+(qu3*PR_QUEST)+(qu4*PR_QUEST)+(qu5*PR_QUEST)+(img_amount*PR_IMG);
+                $('#price_show').text(`${finalPrice}.00 บาท`);
+            }
+            $('document').ready(function(){
+                // ขั้นตอนของผู้ขอ
+                $('#class_request').on('input', function(){
+                    let _this = Number($(this).val());
+                    if(_this >= 4){
+                        $("#class_no_request .sem").remove();
+                        $('#class_no_request').append('<option class="sem" value="5">5 (Lambda)</option>');
+                        $('#class_no_request').append('<option class="sem" value="6">6 (Alpha)</option>');
+                    }else{
+                        $("#class_no_request .sem").remove();
+                    }
+                });
+        
+                $('#class_no_request').change(function(){
+                    $.ajax({
+                        type: "POST",
+                        data: {CLASS_REQUEST: $('#class_request').val(),CLASS_NO_REQUEST: $('#class_no_request').val()},
+                        url: "http://127.0.0.1:3001/songrak_dumpname",
+                        success: function(data){
+                            $('#request_name').html(data);
+                        }
+                    })
+                    return false;
+                })
+        
+                // ขั้นตอนของผู้รับ
+                $('#class_recieve').on('input', function(){
+                    let _this = Number($(this).val());
+                    if(_this >= 4){
+                        $("#class_no_recieve .sem").remove();
+                        $('#class_no_recieve').append('<option class="sem" value="5">5 (Lambda)</option>');
+                        $('#class_no_recieve').append('<option class="sem" value="6">6 (Alpha)</option>');
+                    }else{
+                        $("#class_no_recieve .sem").remove();
+                    }
+                });
+        
+                $('#class_no_recieve').change(function(){
+                    $.ajax({
+                        type: "POST",
+                        data: {CLASS_REQUEST: $('#class_recieve').val(),CLASS_NO_REQUEST: $('#class_no_recieve').val()},
+                        url: "http://127.0.0.1:3001/songrak_dumpname",
+                        success: function(data){
+                            $('#recieve_name').html(data);
+                        }
+                    })
+                    return false;
+                })
+        
+                // ขั้นตอนกรอกรายละเอียดฟอร์มเพิ่มเติม
+                $('#quest1').change(function(){
+                    var $_this = $(this).val();
+                    if($_this === ''){
+                        qu1 = 0;
+                        showPrice();
+                    }else{
+                        qu1 = 1;
+                        showPrice();
+                    }
+                });
+                $('#quest2').change(function(){
+                    var $_this = $(this).val();
+                    if($_this === ''){
+                        qu2 = 0;
+                        showPrice();
+                    }else{
+                        qu2 = 1;
+                        showPrice();
+                    }
+                });
+                $('#quest3').change(function(){
+                    var $_this = $(this).val();
+                    if($_this === ''){
+                        qu3 = 0;
+                        showPrice();
+                    }else{
+                        qu3 = 1;
+                        showPrice();
+                    }
+                });
+                $('#quest4').change(function(){
+                    var $_this = $(this).val();
+                    if($_this === ''){
+                        qu4 = 0;
+                        showPrice();
+                    }else{
+                        qu4 = 1;
+                        showPrice();
+                    }
+                });
+                $('#quest5').change(function(){
+                    var $_this = $(this).val();
+                    if($_this === ''){
+                        qu5 = 0;
+                        showPrice();
+                    }else{
+                        qu5 = 1;
+                        showPrice();
+                    }
+                });
+        
+                $('#img_amount').change(function(){
+                    img_amount = Number($(this).val());
+                    showPrice();
+                });
+            });
+        </script>
+    <script>
+          feather.replace()
+    </script>
+</body>
+</html>
