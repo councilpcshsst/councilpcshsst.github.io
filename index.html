@@ -53,7 +53,7 @@
         .then((data) => {
             document.getElementById("button-g").innerHTML = ''
             if(typeof data == "number"){
-                document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>${data}</strong> <br>โปรดติดต่อคณะกรรมการสภานักเรียน` 
+                document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>${data}</strong> <br>โปรดติดต่อคณะกรรมการนักเรียน` 
             }
             for(x in data){
                 const title = data[x].buttons_title
