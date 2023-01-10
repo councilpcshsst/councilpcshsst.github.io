@@ -26,7 +26,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-    <form method="POST" action="https://councilapi.ngixx.in.th/songrak_add">
+    <form method="POST" action="https://tempcon.ngixx.in.th/songrak_add">
         <div class="container my-3">
             <div class="container-sm">
                 <div class="alert alert-warning" role="alert">
@@ -50,7 +50,6 @@
                         <div class="mb-3">
                           <label for="class_no_request" class="form-label">ห้องที่กำลังศึกษา</label>
                           <select name="CLASS_NO_REQUEST" id="class_no_request" class="form-control">
-                            <option value="0"></option>
                             <option value="1">1 (Omega)</option>
                             <option value="2">2 (Delta)</option>
                             <option value="3">3 (Theta)</option>
@@ -92,7 +91,6 @@
                         <div class="mb-3">
                           <label for="class_no_recieve" class="form-label">ห้องที่กำลังศึกษา</label>
                           <select name="CLASS_NO_RECIEVE" id="class_no_recieve" class="form-control">
-                            <option value="0"></option>
                             <option value="1">1 (Omega)</option>
                             <option value="2">2 (Delta)</option>
                             <option value="3">3 (Theta)</option>
@@ -103,7 +101,8 @@
                           <label for="recieve_name" class="form-label">ผู้ขอ</label>
                           <select name="RECIEVE_NAME" id="recieve_name" class="form-control">
                           </select>
-                        </div>        
+                        </div>
+                        <div class="mb-3" id="notice"></div>     
                     </div>
                 </div>
             </div>
@@ -116,19 +115,19 @@
                     <div class="card-body">
                         <div class="mb-3">
                           <label for="quest1" class="form-label">คำถามที่ 1:</label>
-                          <input required type="text" id="quest1" class="form-control" name="QUEST1">
+                          <input required type="text" id="quest1" class="form-control" name="QUEST1" disabled>
                           <label for="quest2" class="form-label">คำถามที่ 2:</label>
-                          <input required type="text" id="quest2" class="form-control" name="QUEST2">
+                          <input required type="text" id="quest2" class="form-control" name="QUEST2" disabled>
                           <label for="quest3" class="form-label">คำถามที่ 3:</label>
-                          <input required type="text" id="quest3" class="form-control" name="QUEST3">
+                          <input required type="text" id="quest3" class="form-control" name="QUEST3" disabled>
                           <label for="quest4" class="form-label">คำถามที่ 4:</label>
-                          <input type="text" id="quest4" class="form-control" name="QUEST4">
+                          <input type="text" id="quest4" class="form-control" name="QUEST4" disabled>
                           <label for="quest5" class="form-label">คำถามที่ 5:</label>
-                          <input type="text" id="quest5" class="form-control" name="QUEST5">
+                          <input type="text" id="quest5" class="form-control" name="QUEST5" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="img_amount">จำนวนรูปภาพ: </label>
-                            <select name="IMG_AMOUNT" class="form-control" id="img_amount">
+                            <select name="IMG_AMOUNT" class="form-control" id="img_amount" disabled>
                                 <option value="" selected></option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -179,10 +178,56 @@
             const PR_QUEST = 5;
             const PR_IMG = 10;
             var qu1 = 0; var qu2 = 0; var qu3 = 0; var qu4 = 0; var qu5 = 0; var img_amount = 0;
+            var deny_dat;
+            const quest1 = document.querySelector("#quest1");
+            const quest2 = document.querySelector("#quest2");
+            const quest3 = document.querySelector("#quest3");
+            const quest4 = document.querySelector("#quest4");
+            const quest5 = document.querySelector("#quest5");
+            const photo = document.querySelector("#img_amount");
+
             function showPrice(){
                 var finalPrice = (qu1*PR_QUEST)+(qu2*PR_QUEST)+(qu3*PR_QUEST)+(qu4*PR_QUEST)+(qu5*PR_QUEST)+(img_amount*PR_IMG);
                 $('#price_show').text(`${finalPrice}.00 บาท`);
             }
+            
+            function resetDeny(){
+                photo.removeAttribute("disabled", "");
+                quest1.removeAttribute("disabled", "");
+                quest2.removeAttribute("disabled", "");
+                quest3.removeAttribute("disabled", "");
+                quest4.removeAttribute("disabled", "");
+                quest5.removeAttribute("disabled", "");
+            }
+
+            function getReason(e){
+                deny_dat = e.dataset.value;
+                document.getElementById("notice").innerHTML = "";
+                showDenyDetails();
+                // alert(deny_dat);
+            }
+            // ตรวจว่าผู้รับประสงค์รับหรือไม่
+            function showDenyDetails(){
+                if(deny_dat == "npt"){
+                    document.getElementById("notice").innerHTML = "❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอถ่ายรูป";
+                    resetDeny();
+                    photo.setAttribute("disabled", "");
+                }else if(deny_dat == "nqt"){
+                    document.getElementById("notice").innerHTML = "❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอตอบคำถาม";
+                    resetDeny();
+
+                    quest1.setAttribute("disabled", "");
+                    quest2.setAttribute("disabled", "");
+                    quest3.setAttribute("disabled", "");
+                    quest4.setAttribute("disabled", "");
+                    quest5.setAttribute("disabled", "");
+                }else if(deny_dat == "nptnqt"){
+                    document.getElementById("notice").innerHTML = "❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอตอบคำถามและถ่ายรูป";
+                }else{
+                    resetDeny();
+                }
+            }
+
             $('document').ready(function(){
                 // ขั้นตอนของผู้ขอ
                 $('#class_request').on('input', function(){
@@ -200,7 +245,7 @@
                     $.ajax({
                         type: "POST",
                         data: {CLASS_REQUEST: $('#class_request').val(),CLASS_NO_REQUEST: $('#class_no_request').val()},
-                        url: "https://councilapi.ngixx.in.th/songrak_dumpname",
+                        url: "https://127.0.0.1/songrak_namerequest",
                         success: function(data){
                             $('#request_name').html(data);
                         }
@@ -219,12 +264,12 @@
                         $("#class_no_recieve .sem").remove();
                     }
                 });
-        
+    
                 $('#class_no_recieve').change(function(){
                     $.ajax({
                         type: "POST",
                         data: {CLASS_REQUEST: $('#class_recieve').val(),CLASS_NO_REQUEST: $('#class_no_recieve').val()},
-                        url: "https://councilapi.ngixx.in.th/songrak_dumpname",
+                        url: "https://127.0.0.1/songrak_namerecieve",
                         success: function(data){
                             $('#recieve_name').html(data);
                         }
@@ -288,6 +333,7 @@
                     img_amount = Number($(this).val());
                     showPrice();
                 });
+
             });
         </script>
     <script>
