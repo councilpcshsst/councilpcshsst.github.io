@@ -26,7 +26,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-    <form method="POST" action="https://tempcon.ngixx.in.th/songrak_add">
+    <form method="POST" action="https://councilapi.ngixx.in.th/songrak_add">
         <div class="container my-3">
             <div class="container-sm">
                 <div class="alert alert-warning" role="alert">
@@ -245,7 +245,7 @@
                     $.ajax({
                         type: "POST",
                         data: {CLASS_REQUEST: $('#class_request').val(),CLASS_NO_REQUEST: $('#class_no_request').val()},
-                        url: "https://127.0.0.1/songrak_namerequest",
+                        url: "https://councilapi.ngixx.in.th/songrak_namerequest",
                         success: function(data){
                             $('#request_name').html(data);
                         }
@@ -269,7 +269,7 @@
                     $.ajax({
                         type: "POST",
                         data: {CLASS_REQUEST: $('#class_recieve').val(),CLASS_NO_REQUEST: $('#class_no_recieve').val()},
-                        url: "https://127.0.0.1/songrak_namerecieve",
+                        url: "https://councilapi.ngixx.in.th/songrak_namerecieve",
                         success: function(data){
                             $('#recieve_name').html(data);
                         }
