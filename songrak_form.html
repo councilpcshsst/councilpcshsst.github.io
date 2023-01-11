@@ -178,57 +178,53 @@
             const PR_QUEST = 5;
             const PR_IMG = 10;
             var qu1 = 0; var qu2 = 0; var qu3 = 0; var qu4 = 0; var qu5 = 0; var img_amount = 0;
-            var deny_dat;
-            const quest1 = document.querySelector("#quest1");
-            const quest2 = document.querySelector("#quest2");
-            const quest3 = document.querySelector("#quest3");
-            const quest4 = document.querySelector("#quest4");
-            const quest5 = document.querySelector("#quest5");
-            const photo = document.querySelector("#img_amount");
 
             function showPrice(){
                 var finalPrice = (qu1*PR_QUEST)+(qu2*PR_QUEST)+(qu3*PR_QUEST)+(qu4*PR_QUEST)+(qu5*PR_QUEST)+(img_amount*PR_IMG);
                 $('#price_show').text(`${finalPrice}.00 บาท`);
             }
             
-            function resetDeny(){
-                photo.removeAttribute("disabled", "");
-                quest1.removeAttribute("disabled", "");
-                quest2.removeAttribute("disabled", "");
-                quest3.removeAttribute("disabled", "");
-                quest4.removeAttribute("disabled", "");
-                quest5.removeAttribute("disabled", "");
-            }
-
-            function getReason(e){
-                deny_dat = e.dataset.value;
-                document.getElementById("notice").innerHTML = "";
-                showDenyDetails();
-                // alert(deny_dat);
-            }
-            // ตรวจว่าผู้รับประสงค์รับหรือไม่
-            function showDenyDetails(){
-                if(deny_dat == "npt"){
-                    document.getElementById("notice").innerHTML = "❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอถ่ายรูป";
-                    resetDeny();
-                    photo.setAttribute("disabled", "");
-                }else if(deny_dat == "nqt"){
-                    document.getElementById("notice").innerHTML = "❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอตอบคำถาม";
-                    resetDeny();
-
-                    quest1.setAttribute("disabled", "");
-                    quest2.setAttribute("disabled", "");
-                    quest3.setAttribute("disabled", "");
-                    quest4.setAttribute("disabled", "");
-                    quest5.setAttribute("disabled", "");
-                }else if(deny_dat == "nptnqt"){
-                    document.getElementById("notice").innerHTML = "❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอตอบคำถามและถ่ายรูป";
-                }else{
-                    resetDeny();
-                }
-            }
-
             $('document').ready(function(){
+                function closeAll(){
+                    $("#quest1").prop( "disabled", true );
+                    $("#quest2").prop( "disabled", true );
+                    $("#quest3").prop( "disabled", true );
+                    $("#quest4").prop( "disabled", true );
+                    $("#quest5").prop( "disabled", true );
+                    $("#img_amount").prop( "disabled", true );
+                }
+
+                function openAll(){
+                    $("#quest1").prop( "disabled", false );
+                    $("#quest2").prop( "disabled", false );
+                    $("#quest3").prop( "disabled", false );
+                    $("#quest4").prop( "disabled", false );
+                    $("#quest5").prop( "disabled", false );
+                    $("#img_amount").prop( "disabled", false );                    
+                }
+                $("#recieve_name").on('change', function () {
+                    var _this = $(this).find('option:selected').attr('id');
+                    closeAll();
+                    if(_this == 'npt'){
+                        $('#notice').html('❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอถ่ายรูป');
+                        $("#quest1").prop( "disabled", false );
+                        $("#quest2").prop( "disabled", false );
+                        $("#quest3").prop( "disabled", false );
+                        $("#quest4").prop( "disabled", false );
+                        $("#quest5").prop( "disabled", false );
+                    }else if(_this == 'nqt'){
+                        $('#notice').html('❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ตอบคำถาม');
+                        $("#img_amount").prop( "disabled", false );
+                    }else if(_this == 'nptnqt'){
+                        $('#notice').html('❌ คนที่ท่านทำการเลือกไว้ไม่ประสงค์ขอถ่ายรูป/ตอบคำถาม');
+                    }else if(_this == 'wait'){
+                        closeAll();
+                    }else{
+                        $('#notice').html('');
+                        openAll();
+                    }
+                });
+                
                 // ขั้นตอนของผู้ขอ
                 $('#class_request').on('input', function(){
                     let _this = Number($(this).val());
