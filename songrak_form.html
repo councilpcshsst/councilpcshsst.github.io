@@ -19,9 +19,11 @@
     <meta name="twitter:description" content="ส่งรักส่งยิ้มโดย คณะกรรมการนักเรียนโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย สตูล">
     <meta name="twitter:image" content="https://songrak.ngixx.in.th/img/social_thumb.png">
     <!-- CSS -->
-    <noscript>กรุณาเปิดใช้งาน JavaScript</noscript>
+    <noscript><meta http-equiv="refresh" content="0; url=https://councilpcshsst.github.io/"></noscript>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://malsup.github.io/jquery.blockUI.js"></script>
+    <!-- <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script> -->
     <!-- Feather Icons CDN -->
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
@@ -29,6 +31,11 @@
     <form method="POST" action="https://councilapi.ngixx.in.th/songrak_add">
         <div class="container my-3">
             <div class="container-sm">
+                <center>
+                    <img src="img/logo.svg" width="135">
+                    <h3>แบบฟอร์มขอส่งรักส่งยิ้ม</h3>
+                    <h5>สภามายไรท์ - Myright (2565-2566)</h5><hr>
+                </center>
                 <div class="alert alert-warning" role="alert">
                     <i data-feather="alert-circle"></i> หากตัวฟอร์มเกิดข้อผิดพลาดให้ทดลองรีเฟรชหน้าจอ/เข้าหน้าเว็บไซต์ใหม่อีกครั้ง
                   </div>                  
@@ -38,7 +45,7 @@
                         <div class="mb-3">
                           <label for="class_request" class="form-label">ระดับชั้นที่กำลังศึกษา</label>
                           <select name="CLASS_REQUEST" id="class_request" class="form-control">
-                            <option value="x" selected>ชั้นมัธยมศึกษาปีที่ ...</option>
+                            <option value="x" selected disabled>ชั้นมัธยมศึกษาปีที่ ...</option>
                             <option value="1">ชั้นมัธยมศึกษาปีที่ 1</option>
                             <option value="2">ชั้นมัธยมศึกษาปีที่ 2</option>
                             <option value="3">ชั้นมัธยมศึกษาปีที่ 3</option>
@@ -50,6 +57,7 @@
                         <div class="mb-3">
                           <label for="class_no_request" class="form-label">ห้องที่กำลังศึกษา</label>
                           <select name="CLASS_NO_REQUEST" id="class_no_request" class="form-control">
+                            <option value="x" selected disabled>ห้อง ...</option>
                             <option value="1">1 (Omega)</option>
                             <option value="2">2 (Delta)</option>
                             <option value="3">3 (Theta)</option>
@@ -79,7 +87,7 @@
                         <div class="mb-3">
                           <label for="class_recieve" class="form-label">ระดับชั้นที่กำลังศึกษา</label>
                           <select name="CLASS_RECIEVE" id="class_recieve" class="form-control">
-                            <option value="x" selected>ชั้นมัธยมศึกษาปีที่ ...</option>
+                            <option value="x" selected disabled>ชั้นมัธยมศึกษาปีที่ ...</option>
                             <option value="1">ชั้นมัธยมศึกษาปีที่ 1</option>
                             <option value="2">ชั้นมัธยมศึกษาปีที่ 2</option>
                             <option value="3">ชั้นมัธยมศึกษาปีที่ 3</option>
@@ -91,6 +99,7 @@
                         <div class="mb-3">
                           <label for="class_no_recieve" class="form-label">ห้องที่กำลังศึกษา</label>
                           <select name="CLASS_NO_RECIEVE" id="class_no_recieve" class="form-control">
+                            <option value="x" selected disabled>ห้อง ...</option>
                             <option value="1">1 (Omega)</option>
                             <option value="2">2 (Delta)</option>
                             <option value="3">3 (Theta)</option>
@@ -98,7 +107,7 @@
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="recieve_name" class="form-label">ผู้ขอ</label>
+                          <label for="recieve_name" class="form-label">ผู้รับ</label>
                           <select name="RECIEVE_NAME" id="recieve_name" class="form-control">
                           </select>
                         </div>
@@ -167,7 +176,7 @@
                     <div class="card-body">
                         <center>
                             <p style="color:red;">** โปรดตรวจสอบข้อมูลให้ถี่ถ้วนก่อนส่งข้อมูล **</p>
-                            <button class="btn btn-success" type="submit"><i data-feather="save"></i> ส่งข้อมูล</button>
+                            <button class="btn btn-success" id="submit"><i data-feather="save"></i> ส่งข้อมูล</button>
                         </center>
                     </div>
                 </div>
@@ -183,7 +192,7 @@
                 var finalPrice = (qu1*PR_QUEST)+(qu2*PR_QUEST)+(qu3*PR_QUEST)+(qu4*PR_QUEST)+(qu5*PR_QUEST)+(img_amount*PR_IMG);
                 $('#price_show').text(`${finalPrice}.00 บาท`);
             }
-            
+
             $('document').ready(function(){
                 function closeAll(){
                     $("#quest1").prop( "disabled", true );
@@ -224,7 +233,7 @@
                         openAll();
                     }
                 });
-                
+
                 // ขั้นตอนของผู้ขอ
                 $('#class_request').on('input', function(){
                     let _this = Number($(this).val());
@@ -244,8 +253,14 @@
                         url: "https://councilapi.ngixx.in.th/songrak_namerequest",
                         success: function(data){
                             $('#request_name').html(data);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown){
+                            $.blockUI({ message: "<h1>Can't connect to API.</h1>" });
                         }
                     })
+                    .fail(function(err){
+                        $.blockUI({ message: `<img src='img/error.png' width="60"><h1>Can't connect to API.</h1><h3>ไม่สามารถเชื่อมต่อไปยัง API</h3><button onClick="$.unblockUI()">รับทราบ</button>` });
+                    });                    
                     return false;
                 })
         
@@ -270,6 +285,9 @@
                             $('#recieve_name').html(data);
                         }
                     })
+                    .fail(function(err){
+                        $.blockUI({ message: `<img src='img/error.png' width="60"><h1>Can't connect to API.</h1><h3>ไม่สามารถเชื่อมต่อไปยัง API</h3><button onClick="$.unblockUI()">รับทราบ</button>` });
+                    });
                     return false;
                 })
         
@@ -329,7 +347,16 @@
                     img_amount = Number($(this).val());
                     showPrice();
                 });
-
+            });
+            $(document).keydown(function (event) {
+                if (event.keyCode == 123) { // Prevent F12
+                    return false;
+                } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+                    return false;
+                }
+            });
+            $(document).on("contextmenu", function (e) {        
+                e.preventDefault();
             });
         </script>
     <script>
