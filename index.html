@@ -30,7 +30,7 @@
         </div>
     </div>
     <script>
-        fetch("https://councilapi.ngixx.in.th/menu_sapha")
+        fetch("https://tempcon.ngixx.in.th/menu_sapha")
         .then( (res) => {
             if(res.status !== 200){
                 return res.status
@@ -53,6 +53,9 @@
                 `
                 document.getElementById("button-g").appendChild(box)
             }
+        }).catch(function(res){
+            console.log(res)
+            document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>ไม่ทราบสาเหตุ</strong> <br>โปรดติดต่อคณะกรรมการนักเรียน` 
         })
     </script>
 </body>
