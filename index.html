@@ -58,10 +58,13 @@
                 <div class="card-body">
                     <img src="img/logo.svg" alt="" width="150">
                     <h2 class="header">Council PCSHSST</h2>
-                    <h4>กรุณาเลือกเมนูที่ต้องการ</h4><hr>
-                    <div class="col mx-4">
-                        <div id="button-g">กำลังดึงข้อมูล โปรดรอสักครู่... (หากนานกว่า 30 วินาทีโปรดลองอีกครั้งภายหลัง)</div>
-                        <noscript><strong>หากเห็นข้อความนี้กรุณาเปิดใช้งาน JavaScript ขออภัยในความไม่สะดวก</strong></noscript>
+                    <h4>ประกาศสำคัญ</h4><hr>
+                    <div class="col">
+                        ย้ายไปยังเว็บไซต์ใหม่แล้วท่านสามารถเข้าถึงได้ผ่าน<br>
+                        URL: <a href="https://councilpcshsst.vercel.app/">https://councilpcshsst.vercel.app/</a>
+                    </div>
+                    <div class="col mt-4">
+                        <strong>(ระบบกำลังย้ายไปยังเว็บไซต์ใหม่โดยอัตโนมัติ)</strong>
                     </div>
                     <hr>
                     <a href="https://facebook.com/PCCST.sc" class="mr-4"><img src="img/social_icon/fb.png" alt="FB" height="26"></a>
@@ -73,33 +76,33 @@
         </div>
     </div>
     <script>
-        fetch("https://councilapi.ngixx.in.th/menu_sapha")
-        .then( (res) => {
-            if(res.status !== 200){
-                return res.status
-            }
-            return res.json();
-        } )
-        .then((data) => {
-            document.getElementById("button-g").innerHTML = ''
-            if(typeof data == "number"){
-                document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>${data}</strong> <br>โปรดติดต่อคณะกรรมการนักเรียน` 
-            }
-            for(x in data){
-                const title = data[x].buttons_title
-                const links = data[x].link
-                const box = document.createElement('div')
-                box.innerHTML = `
-                <div class='row'>
-                <a href='${links}' class='btn btn-lg btn-success my-2'>${title}</a>
-                </div>
-                `
-                document.getElementById("button-g").appendChild(box)
-            }
-        }).catch(function(res){
-            console.log(res)
-            document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>ไม่ทราบสาเหตุ</strong> <br>โปรดติดต่อคณะกรรมการนักเรียน` 
-        })
+        // fetch("https://councilapi.ngixx.in.th/menu_sapha")
+        // .then( (res) => {
+        //     if(res.status !== 200){
+        //         return res.status
+        //     }
+        //     return res.json();
+        // } )
+        // .then((data) => {
+        //     document.getElementById("button-g").innerHTML = ''
+        //     if(typeof data == "number"){
+        //         document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>${data}</strong> <br>โปรดติดต่อคณะกรรมการนักเรียน` 
+        //     }
+        //     for(x in data){
+        //         const title = data[x].buttons_title
+        //         const links = data[x].link
+        //         const box = document.createElement('div')
+        //         box.innerHTML = `
+        //         <div class='row'>
+        //         <a href='${links}' class='btn btn-lg btn-success my-2'>${title}</a>
+        //         </div>
+        //         `
+        //         document.getElementById("button-g").appendChild(box)
+        //     }
+        // }).catch(function(res){
+        //     console.log(res)
+        //     document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>ไม่ทราบสาเหตุ</strong> <br>โปรดติดต่อคณะกรรมการนักเรียน` 
+        // })
     </script>
 </body>
 </html>

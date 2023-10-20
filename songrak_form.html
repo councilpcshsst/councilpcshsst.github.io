@@ -62,6 +62,25 @@
           <h5>สภามายไรท์ - Myright (2565-2566)</h5>
           <hr>
         </center>
+        <!-- Alert Move System -->
+        <script>
+          Swal.fire({
+            title: 'แจ้งเตือน',
+            text: 'สามารถเข้าทดลอง/ใช้งานจริงได้ผ่านลิงก์ใหม่เท่านั้น',
+            icon: 'warning',
+            confirmButtonText: 'รับทราบ',
+            confirmButtonColor: '#228B22',
+            footer: 'สามารถ <a href="https://councilpcshsst.vercel.app/songrak_form">คลิกที่นี่</a> เพื่อไปยังเว็บใหม่'
+          })
+        </script>
+
+        <div class="alert alert-danger py-5 alert-dismissible" role="alert">
+          <h5><i data-feather="tool"></i> ประกาศจากผู้ดูแลระบบ:</h5>
+          ขณะนี้มีฟอร์มเวอร์ชั่นใหม่กำลังปรับปรุงสามารถทดลองใช้ระบบ <a href="https://councilpcshsst.vercel.app/songrak_form">โดยคลิกลิงก์นี้</a>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- Normal -->
         <div class="alert alert-warning" role="alert">
           <i data-feather="alert-circle"></i> หากตัวฟอร์มเกิดข้อผิดพลาดให้เข้าหน้าเว็บไซต์ใหม่อีกครั้ง/สลับช้อยส์ที่ต้องการเลือก
         </div>
