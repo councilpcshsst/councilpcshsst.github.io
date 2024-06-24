@@ -86,7 +86,7 @@
                 document.getElementById("button-g").innerHTML = `เกิดข้อผิดพลาดรหัสที่ : <strong>${data}</strong> <br>โปรดติดต่อคณะกรรมการนักเรียน` 
             }
             for(x in data){
-                const title = data[x].buttons_title
+                const title = data[x].button_title
                 const links = data[x].link
                 const box = document.createElement('div')
                 box.innerHTML = `
